@@ -19,19 +19,23 @@ tmp = {}
 pu.init("a.dat")
 pu.init("inv.dat")
 
+sess = tf.Session()
+
 for i in range(N):
     for j in range(N):
         A[i,j] = tf.Variable(tf.random_uniform([matsize, matsize], seed = i * N + j), name="A{}{}".format(i, j))
-        pu.outData("a.dat", A[i,j], matsize, matsize, i, j)
         if i==j:
             B[i,i] = tf.Variable(tf.eye(matsize))
         else:
             B[i,j] = tf.Variable(tf.zeros([matsize, matsize]))
         tmp[i,j] = tf.Variable(tf.zeros([matsize, matsize]))
 
-sess = tf.Session()
 init = tf.global_variables_initializer()
 sess.run(init)
+
+for i in range(N):
+    for j in range(N):
+        pu.outData(sess, "a.dat", A[i,j], matsize, matsize, i, j)
 
 for k in range(N):
     inv[k] = tf.matrix_inverse(A[k, k])
@@ -51,4 +55,4 @@ for k in range(N):
 
 for i in range(N):
     for j in range(N):
-        pu.outData("inv.dat", B[i,j], matsize, matsize, i, j)
+        pu.outData(sess, "inv.dat", B[i,j], matsize, matsize, i, j)

@@ -1,8 +1,8 @@
 import tensorflow as tf
 
-def outData(filename, data, rowDim, colDim, rowPos, colPos):
+def outData(sess, filename, data, rowDim, colDim, rowPos, colPos):
     #print tf.keras.backend.eval(data), rowDim, colDim
-    arr = tf.keras.backend.eval(data)
+    arr = sess.run(data)
     f=open(filename, 'a')
 
     for i in range(rowDim):

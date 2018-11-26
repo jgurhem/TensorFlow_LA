@@ -42,14 +42,9 @@ def powerIT(sess, A, x, N, matsize, itmax, epsilon):
     la = 1.0
     e = tf.constant(epsilon)
     while i < itmax and sess.run(tf.greater(tf.abs(l - la), e)):
-        printv(sess, "x", x, N, matsize)
         la = l
         b = normalize(sess, x, N, matsize)
-        printv(sess, "b", b, N, matsize)
         x = pmv(A, b, N, matsize)
-        printv(sess, "x", x, N, matsize)
         l = dotVect(sess, b, x, N, matsize)
         i += 1
-        print "i", i
-        print "l", sess.run(l)
     return l
