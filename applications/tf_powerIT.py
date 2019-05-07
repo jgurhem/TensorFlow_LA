@@ -1,8 +1,8 @@
 #!/usr/bin/python
 
 import tensorflow as tf
-import printutils as pu
-import mvop
+import lib.printutils as pu
+import lib.mvop as mvop
 import sys
 
 if len(sys.argv) != 5:

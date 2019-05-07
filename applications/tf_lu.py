@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import tensorflow as tf
-import printutils as pu
+import lib.printutils as pu
 import sys
 
 if len(sys.argv) != 3:
