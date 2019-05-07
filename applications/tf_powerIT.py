@@ -6,7 +6,7 @@ import lib.mvop as mvop
 import sys
 
 if len(sys.argv) != 5:
-    print "Wrong number of arguments !"
+    print("Wrong number of arguments !")
     sys.exit(1)
 
 N = int(sys.argv[1])
@@ -38,7 +38,7 @@ for i in range(N):
 
 l = mvop.powerIT(sess, A, b, N, matsize, itmax, epsilon)
 
-print "l1 =", sess.run(l)
+print("l1 =", sess.run(l))
 
 for i in range(N):
     pu.outData(sess, "r.dat", b[i], matsize, 1, i, 0)

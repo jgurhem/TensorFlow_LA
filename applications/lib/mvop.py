@@ -9,7 +9,7 @@ def printv(sess, name, b, N, matsize):
         bv = sess.run(b[i])
         for j in range(matsize):
             s += " {:.6f}".format(bv[j, 0])
-    print s
+    print(s)
 
 
 def dotVect(sess, a, b, N, matsize):

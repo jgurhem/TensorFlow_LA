@@ -5,7 +5,7 @@ import lib.printutils as pu
 import sys
 
 if len(sys.argv) != 3:
-    print "Wrong number of arguments !"
+    print("Wrong number of arguments !")
     sys.exit(1)
 
 N = int(sys.argv[1])

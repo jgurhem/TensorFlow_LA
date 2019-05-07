@@ -7,7 +7,7 @@ def outData(sess, filename, data, rowDim, colDim, rowPos, colPos):
 
     for i in range(rowDim):
         for j in range(colDim):
-            print >>f, rowPos * rowDim + i, colPos * colDim + j, arr[i, j]
+            print(rowPos * rowDim + i, colPos * colDim + j, arr[i, j], file=f)
 
     f.close()
 
